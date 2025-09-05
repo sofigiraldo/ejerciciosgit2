@@ -1,7 +1,30 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Lanzardados {
     public static void main(String[] args) {
+    }
+    public static void menu() {
+        Scanner sc = new Scanner(System.in);
+        int opcion=0;
+        while(opcion!=3){
+
+            System.out.print("Menu: ");
+            System.out.println("1.Ejercicio dados 2 ");
+            System.out.println("2.Ejercicio dados 3 ");
+            System.out.println("3.IMC");
+            System.out.println("4.");
+            System.out.println("5.");
+            System.out.println("6.Salir");
+
+        }
+    }
+
+    public static void dados2(){
+
+    }
+    public static void dados3(){
+
         Random aleatorio = new Random();
         int dado1 = 0;
         int dado2 = 0;
@@ -51,5 +74,36 @@ public class Lanzardados {
             System.out.println("Mitad:" + nombreMitad + "con" + mitad);
             System.out.println("Peor:" + nombrePeor + "con" + peor);
             }
-        }
+
+            public static String IMC() {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Ingresa tu peso en kg: ");
+                double peso = sc.nextDouble();
+                System.out.println("Ingresa tu estatura");
+                double estatura = sc.nextDouble();
+                double imc = peso/ Math.pow(estatura, 2);
+                String situacion;
+                if (imc < 18.5) {
+                    situacion = "Bajo peso";
+                } else if (imc < 24.9) {
+                    situacion = "Peso normal";
+                } else if (imc < 26.9) {
+                    situacion = "Sobrepeso grado 1";
+                } else if (imc < 29.9) {
+                    situacion = "Sobrepeso grado 2";
+                } else if (imc < 34.9) {
+                    situacion = "Obesidad tipo 1";
+                } else if (imc < 39.9) {
+                    situacion = "Obesidad tipo 2";
+                } else if (imc < 49.9) {
+                    situacion = "Obesidad tipo 3 (mórbida)";
+                } else {
+                    situacion = "Obesidad tipo 4 (extremo)";
+                }
+
+                System.out.printf("Tu IMC es: %.2f\n", imc);
+                System.out.println("Situación: " + situacion);
+                return situacion;
+            }
+}
 
