@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+//natalia sofia giraldo gallego
 public class Lanzardados {
     public static void main(String[] args) {
         menu();
@@ -25,7 +25,7 @@ public class Lanzardados {
                 case 2 -> dados3();
                 case 3 -> IMC();
                 case 4 -> ejercicio4();
-                case 5 -> System.out.println("Ejercicio 5 aún no implementado.");
+                case 5 -> ejercicio5();
                 case 6 -> System.out.println("Saliendo del programa...");
                 default -> System.out.println("Opción inválida. Intente de nuevo.");
             }
@@ -111,7 +111,6 @@ public class Lanzardados {
             System.out.println("Mitad:" + nombreMitad + "\ncon" + mitad);
             System.out.println("Peor:" + nombrePeor + "\ncon" + peor);
             }
-
             public static String IMC() {
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Ingresa tu peso en kg: ");
@@ -194,5 +193,55 @@ public static void ejercicio4(){
 
     System.out.println("Programa finalizado.");
     }
+
+    public static void ejercicio5(){
+        Scanner sc= new Scanner(System.in);
+        Random rand= new Random();
+        int jugador1=0;
+        int jugador2=0;
+        int ronda=1;
+        System.out.println("Juego de dados");
+        System.out.println("Reglas");
+        System.out.println("Gana el jugador que logre una diferencia de 3 o mas puntos");
+        System.out.println("Pierdes un punto si sacas 1");
+        System.out.println("si sale 6, sumas 6 puntos");
+
+        while (jugador1 - jugador2 < 3 && jugador2 - jugador1 < 3) {
+            int tiro1 = rand.nextInt(6) + 1;
+            int tiro2 = rand.nextInt(6) + 1;
+
+            if (tiro1 == 1) {
+                jugador1 -= 1;
+            } else if (tiro1 == 6) {
+                jugador1 += 6;
+            } else {
+                jugador1 += tiro1;
+            }
+
+            if (tiro2 == 1) {
+                jugador2 -= 1;
+            } else if (tiro2 == 6) {
+                jugador2 += 6;
+            } else {
+                jugador2 += tiro2;
+            }
+
+            System.out.println("Jugador 1 tiene: " + jugador1);
+            System.out.println("Jugador 2 tiene: " + jugador2);
+            System.out.println("---------------------");
+        }
+
+        if (jugador1 > jugador2) {
+            System.out.println("Ganó el Jugador 1 con " + jugador1 + " puntos");
+        } else {
+            System.out.println("Ganó el Jugador 2 con " + jugador2 + " puntos");
+        }
+    }
 }
+
+
+
+
+
+
 
